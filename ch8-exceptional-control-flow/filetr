@@ -1,0 +1,24 @@
+case $1 in
+    "-f")
+        for i in $*
+        do
+            if [ -f $i -a "./$i" != $0 ]
+            then
+                x=`echo $i | tr "A-Z" "a-z"`
+                mv $i $x
+            fi
+        done
+        ;;
+    "-F")
+        for i in $*
+        do
+            if [ -f $i -a "./$i" != $0 ]
+            then
+                x=`echo $i | tr "a-z" "A-Z"`
+                mv $i $x
+            fi
+        done
+        ;;
+    *) echo "No $i";;
+esac
+exit 0
